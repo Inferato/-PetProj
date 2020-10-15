@@ -40,17 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Tags',
     'taggit',
-    'rest_framework_swagger',
+    'drf_yasg',
 ]
 AUTH_USER_MODEL = 'Tags.User'
 
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'basic': {
-            'type': 'basic'
-        }
-    }
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
