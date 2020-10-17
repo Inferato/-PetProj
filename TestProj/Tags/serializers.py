@@ -20,4 +20,4 @@ class UserTagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'tags']
+        fields = ['id', 'first_name', 'last_name', 'tags']

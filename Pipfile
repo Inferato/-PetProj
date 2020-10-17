@@ -7,10 +7,12 @@ verify_ssl = true
 
 [packages]
 django = "*"
-djangorestframework = "*"
+djangorestframework = "==3.11.1"
 django-taggit = "*"
 django-rest-swagger = "*"
 drf-yasg = "*"
+swagger-ui = "*"
+packaging = "*"
 
 [requires]
 python_version = "3.8"

@@ -6,5 +6,5 @@ urlpatterns = [
     path('users/', views.UserList.as_view()),
     path('tags/', views.TagsList.as_view()),
     path('tag/<int:pk>', views.Tags.as_view()),
-    path('user_tag/<int:pk>', views.UserTag.as_view())
+    path('user_tag/<int:pk>/', views.UserTag.as_view())
 ]
