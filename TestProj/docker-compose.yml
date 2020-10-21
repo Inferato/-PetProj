@@ -1,0 +1,23 @@
+version: '3.8'
+
+web: &web
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - webnet
+      - nginx_network
+    expose:
+      - 8000
+    environment:
+      DATABASE_PORT: '5432'
+    env_file:
+      - ./.env
+    restart: on-failure
+    command: python manage.py runserver 0.0.0.0:8000
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://0.0.0.0:8000/admin/login/"]
+      interval: 1m
+      timeout: 5s
+      retries: 2
