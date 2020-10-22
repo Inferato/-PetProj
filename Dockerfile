@@ -12,6 +12,7 @@ RUN pip install -U --no-cache-dir pip \
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN mkdir /code
 WORKDIR /code
 
 COPY ./Pipfile /code/Pipfile
