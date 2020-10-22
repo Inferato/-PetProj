@@ -5,18 +5,23 @@ FROM python:latest as python_base
 RUN pip install -U --no-cache-dir pip \
     && pip install --no-cache-dir pipenv
 
+
+
 # Copy only requirements, to cache them in docker layer:
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /pysetup
+WORKDIR /code
 
-COPY ./Pipfile ./Pipfile.lock /pysetup/
+COPY ./Pipfile /code/Pipfile
+COPY ./Pipfile.lock /code/Pipfile.lock
 
 # Project initialization:
 RUN pipenv install --dev --system
 
-COPY . .
+WORKDIR /code
+COPY . /code/
+
 
 
